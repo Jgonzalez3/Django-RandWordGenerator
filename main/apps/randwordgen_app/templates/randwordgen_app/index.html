@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Word Generator</title>
+</head>
+<body>
+    <h3>Random Word (attempt #{{request.session.counter}})</h3>
+    <p>{{request.session.randomword}}</p>
+    <form action="/randwordgen_app/create" method="post">
+        {%csrf_token%}
+        <input type="submit" value="Generate">
+    </form>
+    <form action="/randwordgen_app/reset" method="post">
+        {%csrf_token%}
+        <input type="submit" value="Reset">
+    </form>
+</body>
+</html>
